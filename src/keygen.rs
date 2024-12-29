@@ -746,6 +746,11 @@ impl SecretKey {
             share,
         }
     }
+
+    /// Returns raw secret key
+    pub fn to_bytes(&self) -> [u8; 32] {
+        self.key.to_bytes()
+    }
 }
 
 impl From<&SecretKey> for IndividualPublicKey {
