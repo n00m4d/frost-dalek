@@ -751,6 +751,14 @@ impl SecretKey {
     pub fn to_bytes(&self) -> [u8; 32] {
         self.key.to_bytes()
     }
+
+    /// Create new SecretKey from raw data like index and Scalar in bytes
+    pub fn new_from_index_and_secret(index: u32, key: [u8; 32]) -> Self {
+        Self {
+            index,
+            key: Scalar::from_bits(key),
+        }
+    }
 }
 
 impl From<&SecretKey> for IndividualPublicKey {
